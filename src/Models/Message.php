@@ -19,6 +19,7 @@ class Message
     public array $custom;
     public ?array $attachment;
     public int $createdAt;
+    public string $referencedMessageId;
 
     public function __construct(array $data)
     {
@@ -33,6 +34,7 @@ class Message
         $this->custom = $data['custom'];
         $this->attachment = $data['attachment'] ?? null;
         $this->createdAt = $data['createdAt'];
+        $this->referencedMessageId = (string)$data['referencedMessageId'] ?? null;
     }
 
     public static function createManyFromArray(array $data): array
